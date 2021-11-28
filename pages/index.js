@@ -1,6 +1,22 @@
 import styles from "../styles/index.module.css";
+import Card from "../components/Card";
+import requiredItems from "../data/requiredItems";
+import stockpile from "../data/stockpile";
 
 export default function IndexPage() {
+  const cards = requiredItems.map((item) => {
+    return <Card requiredItem={item} stockpile={stockpile} key={item.name} />;
+  });
+  let cardDecks = [];
+
+  for (let i = 0; i < cards.length; i += 4) {
+    cardDecks.push(
+      <div className="card-deck  mt-5" key={i}>
+        {cards.slice(i, i + 4)}
+      </div>
+    );
+  }
+
   return (
     <>
       <head>
@@ -28,267 +44,20 @@ export default function IndexPage() {
         ></script>
       </head>
       <body>
+        <header className={styles.header}>
+          <h1 className={styles.title}>備蓄カンリくん</h1>
+          <nav className={styles.nav}>
+            <ul class={styles["menu-group"]}>
+              <li class={styles["menu-item"]}>
+                <a href="/lineqr">LINE</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
         <div className="container py-4" id="works">
           <h2>災害時に必要なものを持っていますか？</h2>
           <p>持っている災害グッズを登録してください</p>
-          <div className="card-deck">
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">水</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">食料</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">衣類・下着</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">タオル</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-          </div>
-          <div className="card-deck mt-5">
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">マスク</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">予備電池</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">懐中電灯</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">マッチ</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-          </div>
-          <div className="card-deck mt-5">
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">救急用品</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">使い捨てカイロ</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">ブランケット</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">レインウェア</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-          </div>
-          <div className="card-deck mt-5">
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">ズック靴</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">防災用ヘルメット</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">軍手</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-            <div className="card">
-              <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">洗面用具</h5>
-                <p className="card-text">
-                  これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">これはさんぷる</small>
-                </p>
-              </div>
-            </div>
-            {/* <!-- card --> */}
-          </div>
-        </div>
-        <div className="card-deck mt-5">
-          <div className="card">
-            <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">歯ブラシ</h5>
-              <p className="card-text">
-                これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-              </p>
-              <p className="card-text">
-                <small className="text-muted">これはさんぷる</small>
-              </p>
-            </div>
-          </div>
-          {/* <!-- card --> */}
-          <div className="card">
-            <img src="img/sample4.jpg" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">ウェットティッシュ</h5>
-              <p className="card-text">
-                これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。これはサンプルです。
-              </p>
-              <p className="card-text">
-                <small className="text-muted">これはさんぷる</small>
-              </p>
-            </div>
-          </div>
-
-          {/* <!-- card deck --> */}
-        </div>
-        {/* <!-- container --> */}
-        <label className="open" for="pop-up">
-          ポップアップを表示する
-        </label>
-        <input type="checkbox" id="pop-up" />
-        <div className="overlay">
-          <div className="window">
-            <label className="close" for="pop-up">
-              ×
-            </label>
-            <p className="text">ポップアップの中身が入ります</p>
-          </div>
+          <div className="card-deck">{cardDecks}</div>
         </div>
       </body>
     </>
